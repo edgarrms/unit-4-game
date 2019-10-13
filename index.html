@@ -70,7 +70,7 @@
 
             </div>
 
-            <script src="assets/javascript/game.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
         </div>
 
@@ -87,9 +87,9 @@
             var green = Math.floor((Math.random() * 12) + 1);
             var pink = Math.floor((Math.random() * 12) + 1);
             var red = Math.floor((Math.random() * 12) + 1);
-            console.log(white)
+            console.log(white, green, pink, red)
 
-            var refreshedScore = function () {
+            function refreshedScore() {
                 $("#wins").empty();
                 $("#lose").empty();
                 $("#score").empty();
@@ -99,7 +99,7 @@
                 $("#score").append(score);
             }
 
-            var gameReSet = function () {
+            function gameReSet() {
                 score = 0
                 number = Math.floor((Math.random() * 100) + 20);
                 var white = Math.floor((Math.random() * 12) + 1);
@@ -109,7 +109,7 @@
                 refreshedScore();
             }
 
-            var codeForTheGameToWork = function () {
+            function codeForTheGameToWork() {
                 if (score == rNumber) {
                     wins = wins + 1;
                     alert("aye would you look at that you lost, jk you get a point!")
@@ -128,24 +128,28 @@
             $("#rNumber").append(rNumber);
             $("#score").append(score);
 
-            //$("#white").on("click", function ()
-            $('#white').click(function () {
-                score = score + white;
-                codeForTheGameToWork();
-            })
-            $("#green").click(function () {
-                score = score + green;
-                codeForTheGameToWork();
-            })
-            $("#pink").click(function () {
-                score = score + pink;
-                codeForTheGameToWork();
-            })
-            $("#red").click(function () {
-                score = score + red;
-                codeForTheGameToWork();
-            })
-            console.log(white)
+            $(document).ready(function () {
+                $('#white').click(function () {
+                    score = score + white;
+                    codeForTheGameToWork();
+                    alert(white);
+                })
+                $("#green").click(function () {
+                    score = score + green;
+                    codeForTheGameToWork();
+                    alert(green);
+                })
+                $("#pink").click(function () {
+                    score = score + pink;
+                    codeForTheGameToWork();
+                    alert(pink);
+                })
+                $("#red").click(function () {
+                    score = score + red;
+                    codeForTheGameToWork();
+                    alert(red);
+                })
+            });
 
 
 
